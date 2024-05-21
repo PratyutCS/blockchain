@@ -25,7 +25,9 @@ class server:
         try:
             connected = True
             while connected:
-                msg_length = conn.recv(HEADER).decode(FORMAT)
+                msg_length = ""
+                while len(msg_length) < HEADER:
+                    msg_length += self.client_socket.recv(HEADER).decode(FORMAT)
                 if msg_length:
                     msg_length = int(msg_length)
                     acc_msg = conn.recv(msg_length).decode(FORMAT)
