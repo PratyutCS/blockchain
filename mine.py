@@ -218,7 +218,7 @@ class Mine:
                     if key == i:
                         flag = False
                 if flag:
-                    self.data.update(self.mineBlock())
+                    self.data.update(blc_details)
                     if STOP_FLAG.is_set():
                         print(f"[MINE] aye aye amigos exiting mining 15")
                         STOP_FLAG.clear()
