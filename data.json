@@ -18,5 +18,15 @@
             "50.0 coins credited to lmfoa1 from blockRewards"
         ],
         "block_hash": "0000005bc64eb03e1c985b1d06692b763f599ddbf0b525be694477e2ca21d9f8117a3981bc86ebd551654f90d4cec6aabeef2be6455dca58c787a9388d1bc719"
+    },
+    "2": {
+        "prev_block_hash": "0000005bc64eb03e1c985b1d06692b763f599ddbf0b525be694477e2ca21d9f8117a3981bc86ebd551654f90d4cec6aabeef2be6455dca58c787a9388d1bc719",
+        "merkle_hash": "7c149d3ca342dd4bdd96e005906641250d5e9024334824caf9b8772202f111874f9fc9e1e497d4cfc17e31c79a3a250f2a0bbc54a36a33769e5db0905d504a8b",
+        "time": 1716336124,
+        "nonce": 3228256,
+        "transactions": [
+            "50.0 coins credited to lmfoa1 from blockRewards"
+        ],
+        "block_hash": "00000017767973cf22fc59342a61089f32a238507795da1fe3cd88966cf7c982d68d7d1a88f897f876cd211d5cc75a3f3794e6a04df265611a0f2d964361b6ab"
     }
 }

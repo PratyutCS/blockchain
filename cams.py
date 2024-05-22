@@ -81,6 +81,7 @@ class check_and_merge_chain:
         data = self.readChainFromFile()
         breakpoint11 = -1
         if len(data) == 0:
+            print(f"[CAMS] data length zero merging datadata")
             chain_no = len(data)
             while chain_no < len(chain):
                 json_data = {str(chain_no) : {
@@ -93,6 +94,7 @@ class check_and_merge_chain:
                     }
                 }
                 data.update(json_data)
+                chain_no += 1
         elif len(chain) == 1:
             if len(chain) > len(data):
                 chain_no = len(chain)-1
