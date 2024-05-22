@@ -39,7 +39,7 @@ class server:
                         print(f"[SERVER SCRIPT] {addr} : {acc_msg}")
         except Exception as e:
             print(f"[SERVER SCRIPT] system exited because an error occured REPORT --> {e} : {addr}")
-            sys.exit()
+            self.disconnect(conn,addr)
 
     def send_peers(self, conn):
         peer_list = ""

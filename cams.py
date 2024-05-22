@@ -153,12 +153,9 @@ class check_and_merge_chain:
 
         if change:
             STOP_FLAG.set()
-            time.sleep(1)
             with open(CHAIN_FILE, 'w') as file:
                 json.dump(data, file, indent=4)
             print(f"[MINE] wrote to file")
-            time.sleep(1)
-        
         return change    
 
 class data:
