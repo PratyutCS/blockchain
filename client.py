@@ -7,7 +7,7 @@ class client:
         self.client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.client_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
         self.addr = addr
-        # self.client_socket.settimeout(5)
+        self.client_socket.settimeout(5)
         try:
             self.client_socket.connect((addr, PORT))
         except Exception as e:
@@ -73,16 +73,20 @@ class client:
         try:
             print(f"[CLIENT SCRIPT] Recieving ------- {self.addr}")
             msg_length = ""
-            while len(msg_length) < HEADER:
-                msg_length += self.client_socket.recv(HEADER).decode(FORMAT)
-            # print(f"[CLIENT SCRIPT] msg length is : {msg_length}")
-            acc_msg = ""
-            if msg_length:
-                msg_length = int(msg_length)
-                while len(acc_msg) < msg_length:
-                    acc_msg += self.client_socket.recv(msg_length).decode(FORMAT)
-                print(f"[CLIENT SCRIPT] acc_msg - {len(acc_msg)} : msg_pength - {msg_length}")
-                # print(f"[CLIENT SCRIPT] acc_msg recieved")
-            return acc_msg
+            try:
+                while len(msg_length) < HEADER:
+                    msg_length += self.client_socket.recv(HEADER).decode(FORMAT)
+                # print(f"[CLIENT SCRIPT] msg length is : {msg_length}")
+                acc_msg = ""
+                if msg_length:
+                    msg_length = int(msg_length)
+                    while len(acc_msg) < msg_length:
+                        acc_msg += self.client_socket.recv(msg_length).decode(FORMAT)
+                    print(f"[CLIENT SCRIPT] acc_msg - {len(acc_msg)} : msg_pength - {msg_length}")
+                    # print(f"[CLIENT SCRIPT] acc_msg recieved")
+                return acc_msg
+            except:
+                print("[CLIENT] serror in recieving message")
+                self.disconnect()
         except KeyboardInterrupt:
             self.disconnect()
