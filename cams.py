@@ -80,7 +80,7 @@ class check_and_merge_chain:
         change = True
         data = self.readChainFromFile()
         breakpoint11 = -1
-        if len(data) == 0:
+        if len(data) == 0 and len(chain) != 0:
             print(f"[CAMS] data length zero merging datadata")
             chain_no = len(data)
             while chain_no < len(chain):
